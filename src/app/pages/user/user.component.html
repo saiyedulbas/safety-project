@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+            current page: {{page}}<br>
+            per page: {{perPage}}<br>
+            total Page: {{totalPage}}<br>
+            support Url: {{supportInfo()?.url}}
+            support Url: {{supportInfo()?.text}}
+        </div>
+        <div class="col-8">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Id</th>
+                  <th scope="col">First Name</th>
+                  <th scope="col">Last Name</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Avatar</th>
+                  <th scope="col"> User Info</th>
+                  
+                </tr>
+              </thead>
+              <tbody>
+                @for (item of userList(); track $index) {
+                  <tr>
+                    <th scope="row">{{item.id}}</th>
+                    
+                    <td>{{item.first_name}}</td>
+                    <td>{{item.last_name}}</td>
+                    <td>{{item.email}}</td>
+                    <td><img class="card-img-top" [src]="item.avatar" alt="Card image cap"></td>
+                    <td><button (click)="userInfo(item.id)" class="btn btn-primary">User Info</button></td>
+                    
+                  </tr>
+                }
+                
+                
+              </tbody>
+            </table>
+          </div>
+    </div>
+</div>

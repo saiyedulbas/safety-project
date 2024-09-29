@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row">
+        @if (userNotFound == "User Found") {
+            <div class="col-6">
+                Id: {{userInfo()?.id}}<br>
+                email: {{userInfo()?.email}}<br>
+                first name: {{userInfo()?.first_name}}<br>
+                last name: {{userInfo()?.last_name}}<br>
+                <img [src]="userInfo()?.avatar" alt="">
+            </div>
+        }@else{
+            <div class="col-6">
+                {{userNotFound}}
+            </div>
+        }
+        
+    </div>
+</div>

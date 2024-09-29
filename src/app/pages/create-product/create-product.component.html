@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="row">
+      <div class="col-6 p-3">
+        <form [formGroup]="productForm">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="name">title</label>
+              <input type="text" formControlName="title" class="form-control" id="name" placeholder="name">
+            </div>
+            <div class="text-danger">
+              @if(productForm.controls['title'].touched){
+                @if(productForm.controls['title'].errors?.['required']){
+                    <span>This Field is Required</span>
+                }
+              }
+            </div>
+            <div class="form-group col-md-6">
+              <label for="City">price</label>
+              <input type="text" formControlName="price" class="form-control" id="City" placeholder="City">
+            </div>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="state">description</label>
+            <input type="text" formControlName="description" class="form-control" id="state" placeholder="state">
+          </div>
+        
+          <div class="form-group col-md-6">
+            <label for="Emailid">category</label>
+            <input type="text" formControlName="category" class="form-control" id="Emailid" placeholder="Emailid">
+          </div>
+          
+          <div class="form-group col-md-6">
+            <label for="ContactNo">image</label>
+            <input type="text" formControlName="image" class="form-control" id="ContactNo" placeholder="ContactNo">
+          </div>
+  
+          
+           
+            <button (click)="onSave()" [disabled]="productForm.invalid" type="button" class="btn btn-success">Create</button>
+           
+          
+        </form>
+        </div>
+        
+    </div>
+  </div>
+  
+  

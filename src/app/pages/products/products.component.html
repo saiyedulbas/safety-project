@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        @if (isLoaderOn) {
+            <div id="loader" class="fullscreen-loader d-flex justify-content-center align-items-center">
+                <div class="spinner-border text-primary" role="status">
+                  <span class="sr-only">Loading...</span>
+                </div>
+              </div>
+        }
+        
+        @for (item of productList(); track $index) {
+            <div class="col-4">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" [src]="item.image" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">{{item.title}}</h5>
+                      <p class="card-text">{{item.description}}</p>
+                      <a href="#" class="btn btn-primary">{{item.price}}</a>
+                      <a href="#" class="btn btn-primary">{{item.rating.rate}}</a>
+                    </div>
+                  </div>
+            </div>
+        }
+        
+    </div>
+</div>
+

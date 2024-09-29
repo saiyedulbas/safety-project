@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="row">
+      
+        <div class="col-9">
+            <div class="mb-3">
+                <input type="text" placeholder="Search products By Name ....." (input)="onSearch($event)" class="form-control mb-3" />
+            </div>
+            <div class="row">
+                @for (item of selectedCategory() || searchQuery() ? filteredProducts() : htmlProductInfoValues(); track $index;) {
+                 
+                    <div class="col-4 mb-4 d-flex flex-wrap resizable" [style.width.px]="cardDimensions()[$index]?.width" 
+                    [style.height.px]="cardDimensions()[$index]?.height">
+                        <div class="card"> 
+                            <div class="card-body">
+                                <h5 class="card-title">{{ item.category }}</h5>
+                                <h5 class="card-title">{{ item.name }}</h5>
+                                <p class="card-text">{{ item.description }}</p>
+                                <button class="btn btn-primary" class="btn btn-primary">{{ item.price }}</button>
+                            </div>
+                            <div class="resizer" (mousedown)="onResizeStart($event, $index)"></div>
+                        </div>
+                    </div>
+                }
+            </div> 
+        </div>
+
+     
+        <div class="col-3">
+            <li class="nav-item dropdown">
+                <button class="btn btn-outline-primary btn-lg btn-block dropdown-toggle" 
+                type="button" 
+                id="categoriesDropdown" 
+                data-bs-toggle="dropdown" 
+                aria-expanded="false">
+                {{ selectedCategory() ? selectedCategory() : 'Categories' }}
+        </button>
+                <ul class="dropdown-menu">
+                 
+                    <li>
+                        <a class="dropdown-item" (click)="onCategorySelect(null)">Show All</a>
+                    </li>
+                    @for (category of dummyCategoriesData(); track $index) {
+                        <li>
+                            <a class="dropdown-item" (click)="onCategorySelect(category)">
+                                {{ category }}
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </li>
+            
+        </div>
+    </div>
+</div>
