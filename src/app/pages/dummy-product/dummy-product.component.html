@@ -8,8 +8,8 @@
             <div class="row">
                 @for (item of selectedCategory() || searchQuery() ? filteredProducts() : htmlProductInfoValues(); track $index;) {
                  
-                    <div class="col-4 mb-4 d-flex flex-wrap resizable" [style.width.px]="cardDimensions()[$index]?.width" 
-                    [style.height.px]="cardDimensions()[$index]?.height">
+                    <div class="col-4 mb-4 d-flex flex-wrap resizable" [style.width.px]="cardDimensions()[$index].width" 
+                    [style.height.px]="cardDimensions()[$index].height">
                         <div class="card"> 
                             <div class="card-body">
                                 <h5 class="card-title">{{ item.category }}</h5>
